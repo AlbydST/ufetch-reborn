@@ -41,15 +41,12 @@ fi
 ui=$(basename "$ui")
 
 ## OUTPUT
-
-cat <<EOF
-
-${c0}      |\`__.\`/   ${nc}${USER}${ic}@${nc}${host}${reset}
-${c0}      \____/    ${lc}OS:        ${ic}${os}${reset}
-${c0}      .--.      ${lc}KERNEL:    ${ic}${kernel}${reset}
-${c0}     /    \\     ${lc}UPTIME:    ${ic}${uptime}${reset}
-${c0}    /  ___ \\    ${lc}PACKAGES:  ${ic}${packages}${reset}
-${c0}   / .\`   \`.\\   ${lc}SHELL:     ${ic}${shell}${reset}
-${c0}  /.\`      \`.\\  ${lc}${uitype}:        ${ic}${ui}${reset}
-
-EOF
+echo
+echo -e "\e[1;34m      |\`__.\`/   \e[1;34m${USER}\e[0m@\e[1;34m${host}\e[0m"
+echo -e "\e[1;34m      \____/    \e[1;34mOS:        \e[0m${os}"
+echo -e "\e[1;34m      .--.      \e[1;34mKERNEL:    \e[0m${kernel}"
+echo -e "\e[1;34m     /    \\     \e[1;34mUPTIME:    \e[0m${uptime}"
+echo -e "\e[1;34m    /  ___ \\    \e[1;34mPACKAGES:  \e[0m${packages}"
+echo -e "\e[1;34m   / .\`   \`.\\   \e[1;34mSHELL:     \e[0m${shell}"
+echo -e "\e[1;34m  /.\`      \`.\\  \e[1;34m${uitype}:        \e[0m${ui}"
+echo
