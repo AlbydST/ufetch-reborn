@@ -54,15 +54,30 @@ Here's a list of all currently supported systems with an ASCII logo:
 
 ## TODO
 
+* [ ] Optimize all scripts [22% done]
 * [ ] Add more ASCII logos
 * [ ] Fix Android, ReactOS and Rocky Linux
 * [ ] Remove dependencies to hostname where possible
 * [ ] Reduce package count pipelines where possible
 * [ ] Add support for sx in UI detection
-* [ ] Add documentation and possibly other **optional** functions
+* [ ] Add documentation and possibly other **optional** modules
+
+## Optional Modules
+
+```bash
+memusage="$(free -h | awk '/^Mem:/{print $3}') / $(free -h | awk '/^Mem:/{print $2}')"
+swap="$(free -h | awk '/^Swap:/{print $3}') / $(free -h | awk '/^Swap:/{print $2}')"
+date="$(date +"%F")"
+hour="$(date +"%H:%M:%S")"
+init="$(ps -p 1 -o comm=)"
+disk="$(df -h * | awk 'NR==2{print $3" / "$2}')"
+browser="$(xdg-settings get default-web-browser | sed 's/\.desktop//g')"
+mediaplayer="$(xdg-mime query default audio/mpeg | sed 's/\.desktop//g')"
+```
 
 ## Info
 
-- Execution Time: ≈ 50 milliseconds
-- Supported Variables: Hostname, Kernel, Uptime, Packages, Shell, DE/WM
+- Execution Time: ≈ 20 milliseconds **(30 milliseconds faster than the original)**
+- Default Modules: Hostname, Kernel, Uptime, Packages, Shell, UI (DE/WM)
+- Optional Modules: Memory Usage, Swap Usage, Date, Hour, Init System, Disk Space, Browser, Media Player
 - Original Creator: [jschx](https://gitlab.com/jschx)
